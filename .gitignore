@@ -48,3 +48,5 @@ PrecompileWeb/
 .project
 
 source/Gemfile.lock
+
+out.html

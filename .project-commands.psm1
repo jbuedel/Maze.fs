@@ -41,10 +41,11 @@ This file should be checked into your project's source control.
 #>
 
 function build_project { 
-	write-host "The 'build' command has not been created.  Edit your .project-commands.psm1 file and add your project specific command(s) to the build_project function."
+	msbuild .\Maze.fs.sln	
 }
 function test_project {
-	write-host "The 'test' command has not been created.  Edit your .project-commands.psm1 file and add your project specific command(s) to the test_project function."
+	build
+	Maze.fs\bin\debug\Maze.fs.exe > out.html ; .\out.html	
 }
 function clean_project {
 	write-host "The 'clean' command has not been created.  Edit your .project-commands.psm1 file and add your project specific command(s) to the clean_project function."
