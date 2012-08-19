@@ -9,7 +9,7 @@
 //             [0;0;0;0;0;0;0;0];
 //             [0;0;0;0;0;0;0;0] ]
 
-let mazeSize = 10
+let mazeSize = 40
 let WallWidth = 5
 type Cell = int*int
 type Wall = Cell * Cell
@@ -32,10 +32,14 @@ let isOnBoard cell =
     let x,y = cell
     x >= 0 && x < mazeSize && y >= 0 && y < mazeSize
 
+let rand = new System.Random(200)
+let randomize cells =
+    cells |> Seq.sortBy (fun x -> rand.Next()) 
+    
 let rec move curcell = 
     // a list of taken cells
     takenCells := curcell :: !takenCells
-    for a in adjcells curcell do
+    for a in  randomize(adjcells curcell) do
         if isOnBoard a && isTaken a !takenCells = false then
             // a list of *removed* walls.
             removedWalls := (curcell, a) :: !removedWalls
