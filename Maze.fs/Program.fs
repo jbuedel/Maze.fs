@@ -46,20 +46,32 @@ move (3,3)
 let projectToCoords allWalls =
     let rec project allWalls = 
         let scale = WallWidth * 2
+        let shift = WallWidth * 3
         match allWalls with
-        | ((x1,y1),(x2,y2)) :: rest -> ((x1*scale + WallWidth, y1*scale + WallWidth),(x2*scale + WallWidth, y2*scale + WallWidth)) :: project rest  
+        | ((x1,y1),(x2,y2)) :: rest -> ((x1*scale + shift, y1*scale + shift),(x2*scale + shift, y2*scale + shift)) :: project rest  
         | []                        -> []
     project allWalls
     
-    
-let rec printBoard allWalls = 
-    printfn @"<svg width=""640"" height=""480"" xmlns=""http://www.w3.org/2000/svg""><g>"
-    let rec print allWalls =
-        match allWalls with
-        | ((x1,y1),(x2,y2)) :: rest -> printfn @"<line x1=""%d"" y1=""%d"" x2=""%d"" y2=""%d"" stroke-width=""5"" stroke=""#000000"" fill=""none""/>" x1 y1 x2 y2
-                                       print rest
-        | []    -> ()
-    print allWalls
-    printfn @"</g></svg>"
 
-printBoard (projectToCoords !removedWalls)
+let border = 
+    [((-1,-1),(-1,mazeSize)) 
+     ((-1,-1),(mazeSize,-1))
+     ((mazeSize,-1),(mazeSize,mazeSize))
+     ((-1,mazeSize),(mazeSize,mazeSize))
+     ]
+   
+let printBoard allWalls = 
+    let line x1 y1 x2 y2 = printfn @"<line x1=""%d"" y1=""%d"" x2=""%d"" y2=""%d"" stroke-width=""5"" stroke=""#000000"" fill=""none""/>" x1 y1 x2 y2
+    let rec print allWalls = 
+        printfn @"<svg width=""640"" height=""640"" xmlns=""http://www.w3.org/2000/svg""><g>"
+        let rec print allWalls =
+            match allWalls with
+            | ((x1,y1),(x2,y2)) :: rest -> line x1 y1 x2 y2 
+                                           print rest
+            | []    -> ()
+        print allWalls
+        printfn @"</g></svg>"
+    print (projectToCoords allWalls)
+
+printBoard (!removedWalls @ border)
+//printBoard border
