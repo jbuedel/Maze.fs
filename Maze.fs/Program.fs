@@ -17,7 +17,10 @@ type Wall = Cell * Cell
 let (takenCells) = ref []
 let (removedWalls) = ref []
 
-
+// Add a room.
+takenCells :=  (3,3) :: (3,4) :: (4,3) :: (4,4) :: (3,5) :: (4,5) :: (5,3) :: (5,4) :: (5,5) :: []
+let addRoom size topleft =
+	let makeRoom size 
 let rec isTaken cell takenCells = 
     match takenCells with
     | c :: rest when c=cell -> true
@@ -58,7 +61,8 @@ let projectToCoords allWalls =
     
 
 let border = 
-    [((-1,-1),(-1,mazeSize)) 
+    [((-1,-1),(-1,mazeSize/2 - 1)) 
+     ((-1,mazeSize / 2), (-1,mazeSize))
      ((-1,-1),(mazeSize,-1))
      ((mazeSize,-1),(mazeSize,mazeSize))
      ((-1,mazeSize),(mazeSize,mazeSize))
