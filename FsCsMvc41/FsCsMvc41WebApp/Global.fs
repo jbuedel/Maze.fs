@@ -16,8 +16,11 @@ type Global() =
         routes.IgnoreRoute("{resource}.axd/{*pathInfo}")
         routes.MapRoute("Default", 
                         "{controller}/{action}/{id}", 
-                        { controller = "Home"; action = "Index"
+                        { controller = "Home"; action = "Index";
                           id = UrlParameter.Optional } )
+//        routes.MapRoute("Default1",
+//                        "{controller}/{action}/{seed}",
+//                        { controller = "Home"; action = "Index"; seed = UrlParameter.Optional })
 
     member this.Start() =
         AreaRegistration.RegisterAllAreas()

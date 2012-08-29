@@ -3,7 +3,7 @@
 type Cell = int*int
 type Wall = Cell * Cell
 
-let public MakeMeAMaze = 
+let public MakeMeAMaze seed = 
     let mazeSize = 50
     let WallWidth = 5
 
@@ -30,7 +30,7 @@ let public MakeMeAMaze =
         let x,y = cell
         x >= 0 && x < mazeSize && y >= 0 && y < mazeSize
 
-    let rand = new System.Random(100)
+    let rand = new System.Random(seed)
     let randomize cells =
         cells |> Seq.sortBy (fun x -> rand.Next()%2) 
         
