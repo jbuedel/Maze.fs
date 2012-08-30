@@ -20,7 +20,7 @@ let public MakeMeAMaze seed hallWidth rooms =
 
     // Add 0-10 random sized rooms
     for i in 0..rooms do 
-        let roomsize = rand.Next(mazeSize/7)
+        let roomsize = rand.Next(mazeSize/7) + 2 // a room of size 1 is a hall
         let pos = (rand.Next(mazeSize - roomsize - 1), rand.Next(mazeSize - roomsize - 1))
         takenCells := List.append !takenCells ( genRoom roomsize pos |> Seq.toList )
 
