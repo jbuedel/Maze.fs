@@ -5,15 +5,24 @@ type Wall = Cell * Cell
 
 let public MakeMeAMaze seed hallWidth = 
     let mazeSize = 50
+    let rand = new System.Random(seed)
 
     let (takenCells) = ref []
     let (removedWalls) = ref []
 
-    // Add a room.
-    takenCells :=  (3,3) :: (3,4) :: (4,3) :: (4,4) :: (3,5) :: (4,5) :: (5,3) :: (5,4) :: (5,5) :: []
+    let genRoom size position =
+        let xp,yp = position
+        seq {
+            for x in 0..size-1 do
+                for y in 0..size-1 do 
+                    yield (x+xp, y+yp) 
+        }
 
-//let addRoom size topleft =
-//let makeRoom size 
+    // Add 0-10 random sized rooms
+    for i in 0..rand.Next(10) do 
+        let roomsize = rand.Next(mazeSize/7)
+        let pos = (rand.Next(mazeSize - roomsize), rand.Next(mazeSize - roomsize))
+        takenCells := List.append !takenCells ( genRoom roomsize pos |> Seq.toList )
 
     let rec isTaken cell takenCells = 
         match takenCells with
@@ -29,7 +38,6 @@ let public MakeMeAMaze seed hallWidth =
         let x,y = cell
         x >= 0 && x < mazeSize && y >= 0 && y < mazeSize
 
-    let rand = new System.Random(seed)
     let randomize cells =
         cells |> Seq.sortBy (fun x -> rand.Next()%2) 
         
