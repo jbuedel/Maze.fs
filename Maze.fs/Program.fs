@@ -14,6 +14,6 @@ let printBoard allWalls =
     print allWalls 
 
 
-printBoard (MakeMeAMaze 100) 
+printBoard (MakeMeAMaze 100 5) 
 
 

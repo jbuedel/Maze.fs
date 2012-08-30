@@ -3,9 +3,8 @@
 type Cell = int*int
 type Wall = Cell * Cell
 
-let public MakeMeAMaze seed = 
+let public MakeMeAMaze seed wallWidth = 
     let mazeSize = 50
-    let WallWidth = 5
 
     let (takenCells) = ref []
     let (removedWalls) = ref []
@@ -45,8 +44,8 @@ let public MakeMeAMaze seed =
 
     let projectToCoords allWalls =
         let rec project allWalls = 
-            let scale = WallWidth * 2
-            let shift = WallWidth * 3
+            let scale = wallWidth * 2
+            let shift = wallWidth * 3
             match allWalls with
             | ((x1,y1),(x2,y2)) :: rest -> ((x1*scale + shift, y1*scale + shift),(x2*scale + shift, y2*scale + shift)) :: project rest  
             | []                        -> []
