@@ -43,8 +43,6 @@ let public MakeMeAMaze seed =
                 removedWalls := (curcell, a) :: !removedWalls
                 move a
 
-    move (3,3)
-
     let projectToCoords allWalls =
         let rec project allWalls = 
             let scale = WallWidth * 2
@@ -54,7 +52,6 @@ let public MakeMeAMaze seed =
             | []                        -> []
         project allWalls
         
-
     let border = 
         [((-1,-1),(-1,mazeSize/2 - 1)) 
          ((-1,mazeSize / 2), (-1,mazeSize))
@@ -63,5 +60,5 @@ let public MakeMeAMaze seed =
          ((-1,mazeSize),(mazeSize,mazeSize))
          ]
 
-
+    move (3,3)
     projectToCoords (!removedWalls @ border)
