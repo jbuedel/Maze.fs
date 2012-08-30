@@ -15,7 +15,7 @@
     </div>
     <svg xmlns="http://www.w3.org/2000/svg">
         <g>
-            @foreach(var m in Maze.MakeMeAMaze(Model.Seed, Model.HallWidth))
+            @foreach(var m in Maze.MakeMeAMaze(Model.Seed, Model.HallWidth, Model.Rooms))
             {
                 <line x1="@m.Item1.Item1" y1="@m.Item1.Item2" x2="@m.Item2.Item1" y2="@m.Item2.Item2" stroke-width="5" stroke="#000000" fill="none" />
             }

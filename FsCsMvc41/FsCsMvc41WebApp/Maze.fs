@@ -3,7 +3,7 @@
 type Cell = int*int
 type Wall = Cell * Cell
 
-let public MakeMeAMaze seed hallWidth = 
+let public MakeMeAMaze seed hallWidth rooms = 
     let mazeSize = 50
     let rand = new System.Random(seed)
 
@@ -19,9 +19,9 @@ let public MakeMeAMaze seed hallWidth =
         }
 
     // Add 0-10 random sized rooms
-    for i in 0..rand.Next(10) do 
+    for i in 0..rooms do 
         let roomsize = rand.Next(mazeSize/7)
-        let pos = (rand.Next(mazeSize - roomsize), rand.Next(mazeSize - roomsize))
+        let pos = (rand.Next(mazeSize - roomsize - 1), rand.Next(mazeSize - roomsize - 1))
         takenCells := List.append !takenCells ( genRoom roomsize pos |> Seq.toList )
 
     let rec isTaken cell takenCells = 

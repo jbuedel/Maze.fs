@@ -14,6 +14,6 @@ let printBoard allWalls =
     print allWalls 
 
 let seed = (new System.Random()).Next()
-printBoard (MakeMeAMaze seed 10) 
+printBoard (MakeMeAMaze seed 10 10) 
 
 
