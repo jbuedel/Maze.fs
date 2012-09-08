@@ -8,6 +8,8 @@ type IndexModel = {
     Seed: int
     HallWidth: int
     Rooms: int
+    MazeHeight: int
+    MazeWidth: int
 }
 
 [<HandleError>]
@@ -19,6 +21,6 @@ type HomeController() =
 
         let hallWidth = if hallWidth.HasValue then hallWidth.Value else 5
         let rooms = if rooms.HasValue then rooms.Value else rand(5)
-        this.View({Seed = seed; HallWidth = hallWidth; Rooms = rooms}) :> ActionResult
+        this.View({Seed = seed; HallWidth = hallWidth; Rooms = rooms; MazeHeight = 520; MazeWidth = 520}) :> ActionResult
 
 
