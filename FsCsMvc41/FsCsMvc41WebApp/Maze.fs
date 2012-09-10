@@ -70,3 +70,11 @@ let public MakeMeAMaze seed hallWidth rooms =
 
     move (3,3)
     projectToCoords (!removedWalls @ border)
+
+let public WallPoints walls = 
+    let rec inner walls = 
+        match walls with
+        | (p1,p2) :: rest -> p1 :: p2 :: inner rest
+        | []              -> []
+    inner walls |> List.toSeq |> Seq.distinct
+

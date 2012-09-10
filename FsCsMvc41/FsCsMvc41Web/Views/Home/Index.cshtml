@@ -2,6 +2,7 @@
 
 @{
     Layout = null;
+    var maze = Maze.MakeMeAMaze(Model.Seed, Model.HallWidth, Model.Rooms);
 }
 <!DOCTYPE html>
 
@@ -16,7 +17,7 @@
     
     <svg height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg">
         <g>
-            @foreach(var m in Maze.MakeMeAMaze(Model.Seed, Model.HallWidth, Model.Rooms))
+            @foreach(var m in maze)
             {
                 <line x1="@m.Item1.Item1" y1="@m.Item1.Item2" x2="@m.Item2.Item1" y2="@m.Item2.Item2" stroke-width="4" stroke="#000000" fill="none" />
             }
@@ -27,6 +28,14 @@
 
     <script type="text/javascript" src="~/Scripts/jquery-1.6.4-vsdoc.js"></script>
     <script src="~/Scripts/d3.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var all_walls = [ 
+            @foreach (var p in maze)
+           {
+               <text>{p1:{x1:@p.Item1.Item1,y1:@p.Item1.Item1},p2:{x2: @p.Item2.Item1,y2:@p.Item2.Item2}},</text>
+           }
+        ];
+    </script>
     <script type="text/javascript" src="~/Scripts/script.js"></script>
 </body>
 </html>
