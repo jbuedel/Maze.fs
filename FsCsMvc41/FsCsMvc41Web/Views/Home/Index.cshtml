@@ -2,7 +2,7 @@
 
 @{
     Layout = null;
-    var maze = Maze.MakeMeAMaze(Model.Seed, Model.HallWidth, Model.Rooms);
+    var maze = Maze.MakeMeAMaze(Model.Seed, Model.HallWidth, Model.Rooms).ToList();
 }
 <!DOCTYPE html>
 
@@ -15,7 +15,7 @@
         A dangerous maze.  Return to this maze with this <a href="@Url.Action("Index", Model)">peristent url</a>.
     </div>
     
-    <svg height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg">
+    <svg id="maze" height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg">
         <g>
             @foreach(var m in maze)
             {
@@ -32,7 +32,7 @@
         var all_walls = [ 
             @foreach (var p in maze)
            {
-               <text>{p1:{x1:@p.Item1.Item1,y1:@p.Item1.Item1},p2:{x2: @p.Item2.Item1,y2:@p.Item2.Item2}},</text>
+               <text>{p1:{x:@p.Item1.Item1,y:@p.Item1.Item2},p2:{x: @p.Item2.Item1,y:@p.Item2.Item2}},</text>
            }
         ];
     </script>
