@@ -3,15 +3,18 @@
 
 $(function () {
     // draw the maze
-/*
-    var maze = $("#maze g");
-    for (var i = 0; i < all_walls.length; i++) {
-        var wall = all_walls[i];
-        //var line = '<line x1="' + wall.p1.x + '" y1="' + wall.p1.y + '" x2="' + wall.p2.x + '" y2="' + wall.p2.y + '" stroke-width="4" stroke="#000000" fill="none" />';
-        var line = $("<line>").attr('y1', wall.p1.y).attr('x1', wall.p1.x).attr('x2', wall.p2.x).attr('y2', wall.p2.y).attr('stroke-width', 4).attr('stroke', "#000000").attr('fill', 'none');
-        $(line).appendTo(maze);
-    }
-*/
+    var lines = d3.select("#maze_d3 g").selectAll("line").data([10, 20, 30, 40]).enter().append("line")
+            .attr("x1", function (x) {
+                return x;
+            })
+        .attr("x2", function (x) {
+            return x + 10;
+        })
+        .attr("y1", 10)
+        .attr("y2", 30)
+        .attr("stroke-width", 4).attr("stroke", "#000000").attr("fill", "none");
+
+    //    lines.exit().remove();
 });
 
 
@@ -99,6 +102,7 @@ $(function () {
 
 });
 
+/*
 test("intersectionWorks", function () {
     var line2 = { p1: { x: 3, y: 3 }, p2: { x: 5, y: 5} };
     var path1 = { p1: { x: 5, y: 3 }, p2: { x: 3, y: 5} };
@@ -107,5 +111,6 @@ test("intersectionWorks", function () {
     equals(pathsIntersect(path1, { p1: { x: 0, y: 0 }, p2: { x: 9, y: 0} }), false, "Do not intersect.");
     equals(pathsIntersect(path1, path1), true, "Same line. Incident. Considered an intersect.");
 });
+*/
 
 

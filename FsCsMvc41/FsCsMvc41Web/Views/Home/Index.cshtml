@@ -9,6 +9,11 @@
 <html>
 <head>
     <title>Index</title>
+    <style type="text/css">
+        line {
+            stroke-width: 4;
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -23,6 +28,13 @@
             }
             
             <circle id="circle" cx="10" cy="10" fill="Green" r="5"></circle>
+        </g>
+    </svg>
+    
+    <svg id="maze_d3" height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg" style="border: green double medium"> 
+        <g>
+            <line x1="15" y1="15" x2="45" y2="45"  stroke-width="4" stroke="#000000" fill="none" />
+            <circle id="circle_d3" cx="10" cy="10" fill="Green" r="5"></circle>
         </g>
     </svg>
 
