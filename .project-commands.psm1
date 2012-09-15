@@ -54,7 +54,7 @@ function rebuild_project {
 	write-host "The 'rebuild' command has not been created.  Edit your .project-commands.psm1 file and add your project specific command(s) to the rebuild_project function."
 }
 function develop_project {
-	.\Maze.fs.sln
+	devenv .\Maze.fs.sln
 }
 function pushenv_project {
 	write-host "The 'pushenv' command has not been created.  Edit your .project-commands.psm1 file and add your project specific command(s) to the pushenv_project function."
