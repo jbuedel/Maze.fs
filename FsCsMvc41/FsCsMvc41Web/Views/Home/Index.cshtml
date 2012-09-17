@@ -20,20 +20,9 @@
         A dangerous maze.  Return to this maze with this <a href="@Url.Action("Index", Model)">peristent url</a>.
     </div>
     
-    <svg id="maze" height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg">
+    <svg id="maze" height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg" style="border: green double medium"> 
         <g>
-            @foreach(var m in maze)
-            {
-                <line x1="@m.Item1.Item1" y1="@m.Item1.Item2" x2="@m.Item2.Item1" y2="@m.Item2.Item2" stroke-width="4" stroke="#000000" fill="none" />
-            }
-            
             <circle id="circle" cx="10" cy="10" fill="Green" r="5"></circle>
-        </g>
-    </svg>
-    
-    <svg id="maze_d3" height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg" style="border: green double medium"> 
-        <g>
-            <circle id="circle_d3" cx="10" cy="10" fill="Green" r="5"></circle>
         </g>
     </svg>
 

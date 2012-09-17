@@ -3,7 +3,7 @@
 
 $(function () {
     // draw the maze
-    var lines = d3.select("#maze_d3 g").selectAll("line").data(all_walls).enter().append("line")
+    var lines = d3.select("#maze g").selectAll("line").data(all_walls).enter().append("line")
             .attr("x1", function (line) {
                 return line.p1.x;
             })
