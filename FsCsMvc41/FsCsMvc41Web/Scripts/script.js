@@ -1,5 +1,4 @@
 ﻿/// <reference path="~/Scripts/jquery-1.6.4-vsdoc.js"/>
-/// <reference path="~/Scripts/d3.js"/>
 
 $(function () {
     // draw the maze
