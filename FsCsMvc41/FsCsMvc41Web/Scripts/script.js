@@ -1,16 +1,21 @@
 ﻿/// <reference path="~/Scripts/jquery-1.6.4-vsdoc.js"/>
+/// <reference path="http://d3js.org/d3.v2.js"/>
 
 $(function () {
     // draw the maze
-    var lines = d3.select("#maze_d3 g").selectAll("line").data([10, 20, 30, 40]).enter().append("line")
-            .attr("x1", function (x) {
-                return x;
+    var lines = d3.select("#maze_d3 g").selectAll("line").data(all_walls).enter().append("line")
+            .attr("x1", function (line) {
+                return line.p1.x;
             })
-        .attr("x2", function (x) {
-            return x + 10;
+        .attr("x2", function (line) {
+            return line.p2.x;
         })
-        .attr("y1", 10)
-        .attr("y2", 30)
+        .attr("y1", function (line) {
+            return line.p1.y;
+        })
+        .attr("y2", function (line) {
+            return line.p2.y;
+        })
         .attr("stroke-width", 4).attr("stroke", "#000000").attr("fill", "none");
 
     //    lines.exit().remove();
@@ -18,8 +23,7 @@ $(function () {
 
 
 
-function IsOnSegment(xi, yi, xj, yj,
-                         xk, yk) {
+function IsOnSegment(xi, yi, xj, yj, xk, yk) {
     return (xi <= xk || xj <= xk) && (xk <= xi || xk <= xj) &&
          (yi <= yk || yj <= yk) && (yk <= yi || yk <= yj);
 }
