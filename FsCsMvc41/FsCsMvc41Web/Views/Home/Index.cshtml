@@ -2,18 +2,19 @@
 
 @{
     Layout = null;
-    var maze = Maze.MakeMeAMaze(Model.Seed, Model.HallWidth, Model.Rooms).ToList();
 }
 <!DOCTYPE html>
 
 <html>
 <head>
     <title>Index</title>
+@* ReSharper disable CssNotResolved *@
     <style type="text/css">
         line {
             stroke-width: 4;
         }
     </style>
+@* ReSharper restore CssNotResolved *@
 </head>
 <body>
     <div>
@@ -30,9 +31,9 @@
     <script src="http://d3js.org/d3.v2.js"></script>
     <script type="text/javascript">
         var all_walls = [ 
-            @foreach (var p in maze)
+            @foreach (var wall in Model.Maze)
            {
-               <text>{p1:{x:@p.Item1.Item1,y:@p.Item1.Item2},p2:{x: @p.Item2.Item1,y:@p.Item2.Item2}},</text>
+               <text>{p1:{x:@wall.p1.x,y:@wall.p1.y},p2:{x: @wall.p2.x,y:@wall.p2.y}},</text>
            }
         ];
     </script>

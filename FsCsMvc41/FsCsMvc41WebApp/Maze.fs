@@ -1,7 +1,13 @@
 ﻿module Maze
 
-type Cell = int*int
-type Wall = Cell * Cell
+type public Cell = { 
+    x: int 
+    y: int
+}
+type public Wall = {
+    p1: Cell
+    p2: Cell
+}
 
 let public MakeMeAMaze seed hallWidth rooms = 
     let mazeSize = 50
@@ -15,7 +21,7 @@ let public MakeMeAMaze seed hallWidth rooms =
         seq {
             for x in 0..size-1 do
                 for y in 0..size-1 do 
-                    yield (x+xp, y+yp) 
+                    yield (x+xp, y+yp)  
         }
 
     // Add 0-10 random sized rooms
@@ -56,7 +62,8 @@ let public MakeMeAMaze seed hallWidth rooms =
             let scale = hallWidth * 2
             let shift = hallWidth * 3
             match allWalls with
-            | ((x1,y1),(x2,y2)) :: rest -> ((x1*scale + shift, y1*scale + shift),(x2*scale + shift, y2*scale + shift)) :: project rest  
+                                            // Convert to a Wall here as well.
+            | ((x1,y1),(x2,y2)) :: rest -> {p1 = {x=x1*scale + shift; y=y1*scale + shift}; p2={x=x2*scale + shift; y=y2*scale + shift}} :: project rest  
             | []                        -> []
         project allWalls
         

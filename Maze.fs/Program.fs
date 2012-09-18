@@ -16,8 +16,8 @@ let printBoard allWalls =
 
 let seed = (new System.Random()).Next()
 let maze = MakeMeAMaze seed 5 10
-printBoard (maze) 
-for p in WallPoints maze do
-    let x,y = p
-    printfn "{x:%d,y:%d}" x y
+//printBoard (maze) 
+//for p in WallPoints maze do
+//    let x,y = p
+//    printfn "{x:%d,y:%d}" x y
 

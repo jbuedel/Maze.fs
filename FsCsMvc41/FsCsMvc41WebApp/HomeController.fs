@@ -6,10 +6,9 @@ open System.Web.Mvc
 
 type IndexModel = { 
     Seed: int
-    HallWidth: int
-    Rooms: int
     MazeHeight: int
     MazeWidth: int
+    Maze: Maze.Wall list
 }
 
 [<HandleError>]
@@ -21,7 +20,8 @@ type HomeController() =
 
         let hallWidth = if hallWidth.HasValue then hallWidth.Value else 5
         let rooms = if rooms.HasValue then rooms.Value else rand(5)
-        this.View({Seed = seed; HallWidth = hallWidth; Rooms = rooms; MazeHeight = 520; MazeWidth = 520}) :> ActionResult
+        let maze = Maze.MakeMeAMaze seed hallWidth rooms
+        this.View({Seed = seed; MazeHeight = 520; MazeWidth = 520; Maze = maze}) :> ActionResult
 
 
     member this.Maze (seed:Nullable<int>, hallWidth:Nullable<int>, rooms:Nullable<int>) = 
@@ -32,4 +32,4 @@ type HomeController() =
         let rooms = if rooms.HasValue then rooms.Value else rand(5)
          
         let maze = Maze.MakeMeAMaze seed hallWidth rooms
-        this.Json(maze) :> ActionResult
+        this.Json(maze, JsonRequestBehavior.AllowGet) :> ActionResult
