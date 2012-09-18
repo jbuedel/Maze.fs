@@ -29,14 +29,6 @@
 
     <script type="text/javascript" src="~/Scripts/jquery-1.6.4-vsdoc.js"></script>
     <script src="http://d3js.org/d3.v2.js"></script>
-    <script type="text/javascript">
-        var all_walls = [ 
-            @foreach (var wall in Model.Maze)
-           {
-               <text>{p1:{x:@wall.p1.x,y:@wall.p1.y},p2:{x: @wall.p2.x,y:@wall.p2.y}},</text>
-           }
-        ];
-    </script>
     <script type="text/javascript" src="~/Scripts/script.js"></script>
 </body>
 </html>
