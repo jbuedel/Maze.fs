@@ -46,11 +46,11 @@ function doMaze(wallUrl) {
         })
         .attr("y2", function (line) {
             return line.p2.y;
-        })
-        .attr("stroke-width", 4).attr("stroke", "#000000").attr("fill", "none");
+        });
 
         //    lines.exit().remove();
 
+        // Move the little guy
         var move = function (attrName, change) {
             var attr = $("#circle").attr(attrName);
             attr.baseVal.value = attr.baseVal.value + change;
@@ -89,8 +89,6 @@ function doMaze(wallUrl) {
                 move("cy", 10);
                 cur_pos = down;
             }
-
-            console.log(cur_pos.x + "," + cur_pos.y);
 
             e.stopPropagation();
         });

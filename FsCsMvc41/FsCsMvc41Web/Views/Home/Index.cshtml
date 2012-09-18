@@ -8,22 +8,16 @@
 <html>
 <head>
     <title>Index</title>
-@* ReSharper disable CssNotResolved *@
-    <style type="text/css">
-        line {
-            stroke-width: 4;
-        }
-    </style>
-@* ReSharper restore CssNotResolved *@
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
 </head>
 <body>
     <div>
         A dangerous maze.  Return to this maze with this <a href="@Url.Action("Index", new { Model.Seed })">peristent url</a>.
     </div>
     
-    <svg id="maze" height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg" style="border: green double medium"> 
+    <svg id="maze" height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg"> 
         <g>
-            <circle id="circle" cx="10" cy="10" fill="Green" r="5"></circle>
+            <circle id="circle" cx="10" cy="10" r="4"></circle>
         </g>
     </svg>
 
