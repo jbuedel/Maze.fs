@@ -31,14 +31,13 @@ var pathsIntersect = function (path1, path2) {
                                    path2.p1.x, path2.p1.y, path2.p2.x, path2.p2.y);
 };
 
-
-$(function () {
-    d3.json('/Home/Maze', function(walls) {
+function doMaze(wallUrl) {
+    d3.json(wallUrl, function (walls) {
         // draw the maze
         d3.select("#maze g").selectAll("line").data(walls).enter().append("line")
             .attr("x1", function (line) {
                 return line.p1.x;
-        })
+            })
         .attr("x2", function (line) {
             return line.p2.x;
         })
@@ -51,9 +50,6 @@ $(function () {
         .attr("stroke-width", 4).attr("stroke", "#000000").attr("fill", "none");
 
         //    lines.exit().remove();
-
-
-
 
         var move = function (attrName, change) {
             var attr = $("#circle").attr(attrName);
@@ -98,10 +94,8 @@ $(function () {
 
             e.stopPropagation();
         });
-
     });
-});
-
+}
 
 
 

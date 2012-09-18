@@ -18,7 +18,7 @@
 </head>
 <body>
     <div>
-        A dangerous maze.  Return to this maze with this <a href="@Url.Action("Index", Model)">peristent url</a>.
+        A dangerous maze.  Return to this maze with this <a href="@Url.Action("Index", new { Model.Seed })">peristent url</a>.
     </div>
     
     <svg id="maze" height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg" style="border: green double medium"> 
@@ -28,7 +28,10 @@
     </svg>
 
     <script type="text/javascript" src="~/Scripts/jquery-1.6.4-vsdoc.js"></script>
-    <script src="http://d3js.org/d3.v2.js"></script>
+    <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
     <script type="text/javascript" src="~/Scripts/script.js"></script>
+    <script type="text/javascript">
+        doMaze('@Url.Action("Maze", new{Model.Seed})');
+    </script>
 </body>
 </html>

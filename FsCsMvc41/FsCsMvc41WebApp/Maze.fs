@@ -9,9 +9,11 @@ type public Wall = {
     p2: Cell
 }
 
-let public MakeMeAMaze seed hallWidth rooms = 
+let public MakeMeAMaze seed = 
     let mazeSize = 50
     let rand = new System.Random(seed)
+    let hallWidth = 5
+    let rooms = rand.Next 10
 
     let (takenCells) = ref []
     let (removedWalls) = ref []
