@@ -1,3 +1,28 @@
+html, body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	font-family: Helvetica, Arial, "sans-serif";
+	background: #efefef;
+}
+
+#contentWrap{
+	margin: 0 auto;
+	padding: 0;
+	width: 520px;
+	position: relative;
+}
+
+h1{
+	font-size: 26px;
+	text-align: center;
+}
+
+
 line {
 /*
     stroke-width: 4;
