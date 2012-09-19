@@ -13,7 +13,7 @@ let public MakeMeAMaze seed =
     let mazeSize = 50
     let rand = new System.Random((int)seed);
     let hallWidth = 5
-    let rooms = rand.Next 10
+    let rooms = rand.Next 25
 
     let (takenCells) = ref []
     let (removedWalls) = ref []
