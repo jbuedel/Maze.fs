@@ -11,20 +11,19 @@
     <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
 </head>
 <body>
-    <div>
-        A dangerous maze.  
-    </div>
-    
+    <div id="contentWrap" style="margin: 0 auto; width: 520px;">
+    <div id="mazeContainer">
     <svg id="maze" height="@Model.MazeHeight" width="@Model.MazeWidth" xmlns="http://www.w3.org/2000/svg"> 
         <g>
             <circle id="circle" cx="10" cy="10" r="4"></circle>
             <circle id="sprite2" cx="@(Model.MazeWidth - 10)" cy="@(Model.MazeHeight-10)" r="4"></circle>
         </g>
     </svg>
-    <div>
-        <em>Return to this maze with this <a href="@Url.Action("Index", new { Model.Seed })">persistent url</a>.</em>
     </div>
+        <em>Return to this maze with this <a href="@Url.Action("Index", new { Model.Seed })">persistent url</a>.</em>
+    </div><!-- END CONTENTWRAP -->
 
+	
     <script type="text/javascript" src="~/Scripts/jquery-1.6.4-vsdoc.js"></script>
     <script type="text/javascript" src="http://d3js.org/d3.v2.js"></script>
     <script type="text/javascript" src="~/Scripts/script.js"></script>
