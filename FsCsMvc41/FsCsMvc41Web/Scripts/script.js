@@ -64,7 +64,7 @@ function doMaze(wallUrl) {
         };
 
         var player1 = { id: "#circle", curPos: { x: 10, y: 10 }, keys: { left: 37, up: 38, right: 39, down: 40} };
-        var player2 = { id: "#sprite2", curPos: { x: 50, y: 100 }, keys: { left: 65, up: 87, right: 68, down: 83} };
+        var player2 = { id: "#sprite2", curPos: { x: 510, y: 510 }, keys: { left: 65, up: 87, right: 68, down: 83} };
 
         $("body").keydown(function (e) {
             var movePlayer = function (player) {
