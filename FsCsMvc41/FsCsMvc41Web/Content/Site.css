@@ -18,15 +18,15 @@ body{
 	position: relative;
 }
 
-	#contentWrap a{
-		margin: 0;
+	#footer a{
+		margin: 20px 0 0;
 		padding: 15px;
 		background: #0077c0;
 		color: white;
 		border-radius: 5px;
 		text-decoration: none;
 	}
-		#contentWrap a:hover{
+		#footer a:hover{
 			background: black;
 		}
 #footer p{
@@ -53,5 +53,5 @@ line {
     fill: green;
 }
 #sprite2 {
-    fill: lightgreen;   
+    fill: #0077c0;   
 }
