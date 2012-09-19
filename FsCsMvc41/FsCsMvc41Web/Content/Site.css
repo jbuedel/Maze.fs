@@ -20,14 +20,18 @@ body{
 
 	#contentWrap a{
 		margin: 0;
-		padding: 20px;
+		padding: 15px;
 		background: #0077c0;
 		color: white;
-		border-radius: 2px;
+		border-radius: 5px;
+		text-decoration: none;
 	}
 		#contentWrap a:hover{
 			background: black;
 		}
+#footer p{
+	text-align: center:
+}
 
 h1{
 	font-size: 32px;
