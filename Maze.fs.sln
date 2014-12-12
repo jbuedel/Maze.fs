@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Maze.fs", "Maze.fs\Maze.fs.fsproj", "{4EED4831-83F0-4DE3-94BE-551E00A62C39}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FsCsMvc41Web", "FsCsMvc41\FsCsMvc41Web\FsCsMvc41Web.csproj", "{E68E6D7A-B6A7-47D5-9965-3843DF055797}"
